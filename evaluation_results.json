@@ -1,0 +1,346 @@
+{
+  "mrr_score": 0.8722222222222222,
+  "hit_rate": 1.0,
+  "total_queries": 15,
+  "hits": 15,
+  "misses": 0,
+  "mrr_at_k": {
+    "1": 0.8,
+    "3": 0.8555555555555556,
+    "5": 0.8722222222222222,
+    "10": 0.8722222222222222
+  },
+  "detailed_results": [
+    {
+      "query": "What programs does Orchid International College offer?",
+      "expected_sources": [
+        "02_BSc_CSIT.md",
+        "03_BCA.md",
+        "04_BITM.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "07_BSW.md"
+      ],
+      "retrieved_sources": [
+        "07_BSW.md",
+        "01_About_Us.md",
+        "08_Contact.md",
+        "README.md",
+        "README.md",
+        "06_BBS.md",
+        "08_Contact.md",
+        "01_About_Us.md",
+        "08_Contact.md",
+        "08_Contact.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Tell me about BSc CSIT program",
+      "expected_sources": [
+        "02_BSc_CSIT.md"
+      ],
+      "retrieved_sources": [
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "README.md",
+        "08_Contact.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "What is the BCA program about?",
+      "expected_sources": [
+        "03_BCA.md"
+      ],
+      "retrieved_sources": [
+        "03_BCA.md",
+        "03_BCA.md",
+        "03_BCA.md",
+        "03_BCA.md",
+        "README.md",
+        "03_BCA.md",
+        "02_BSc_CSIT.md",
+        "08_Contact.md",
+        "02_BSc_CSIT.md",
+        "05_BBM.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Information about BITM course",
+      "expected_sources": [
+        "04_BITM.md"
+      ],
+      "retrieved_sources": [
+        "04_BITM.md",
+        "04_BITM.md",
+        "04_BITM.md",
+        "04_BITM.md",
+        "04_BITM.md",
+        "08_Contact.md",
+        "04_BITM.md",
+        "05_BBM.md",
+        "08_Contact.md",
+        "04_BITM.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "What is BBM program?",
+      "expected_sources": [
+        "05_BBM.md"
+      ],
+      "retrieved_sources": [
+        "06_BBS.md",
+        "05_BBM.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "04_BITM.md",
+        "08_Contact.md",
+        "05_BBM.md",
+        "04_BITM.md",
+        "06_BBS.md",
+        "06_BBS.md"
+      ],
+      "reciprocal_rank": 0.5,
+      "first_relevant_rank": 2,
+      "is_hit": true
+    },
+    {
+      "query": "Tell me about BBS course",
+      "expected_sources": [
+        "06_BBS.md"
+      ],
+      "retrieved_sources": [
+        "06_BBS.md",
+        "06_BBS.md",
+        "05_BBM.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "06_BBS.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "06_BBS.md",
+        "08_Contact.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "What is BSW program?",
+      "expected_sources": [
+        "07_BSW.md"
+      ],
+      "retrieved_sources": [
+        "07_BSW.md",
+        "07_BSW.md",
+        "07_BSW.md",
+        "README.md",
+        "README.md",
+        "08_Contact.md",
+        "06_BBS.md",
+        "05_BBM.md",
+        "04_BITM.md",
+        "06_BBS.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "How can I contact Orchid International College?",
+      "expected_sources": [
+        "08_Contact.md"
+      ],
+      "retrieved_sources": [
+        "08_Contact.md",
+        "08_Contact.md",
+        "08_Contact.md",
+        "01_About_Us.md",
+        "01_About_Us.md",
+        "README.md",
+        "README.md",
+        "08_Contact.md",
+        "README.md",
+        "07_BSW.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "What is the history of Orchid International College?",
+      "expected_sources": [
+        "01_About_Us.md"
+      ],
+      "retrieved_sources": [
+        "01_About_Us.md",
+        "08_Contact.md",
+        "01_About_Us.md",
+        "06_BBS.md",
+        "README.md",
+        "README.md",
+        "07_BSW.md",
+        "08_Contact.md",
+        "08_Contact.md",
+        "01_About_Us.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Where is the college located?",
+      "expected_sources": [
+        "08_Contact.md",
+        "01_About_Us.md"
+      ],
+      "retrieved_sources": [
+        "05_BBM.md",
+        "README.md",
+        "README.md",
+        "01_About_Us.md",
+        "08_Contact.md",
+        "03_BCA.md",
+        "01_About_Us.md",
+        "README.md",
+        "02_BSc_CSIT.md",
+        "03_BCA.md"
+      ],
+      "reciprocal_rank": 0.25,
+      "first_relevant_rank": 4,
+      "is_hit": true
+    },
+    {
+      "query": "What are the admission requirements?",
+      "expected_sources": [
+        "02_BSc_CSIT.md",
+        "03_BCA.md",
+        "04_BITM.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "07_BSW.md"
+      ],
+      "retrieved_sources": [
+        "03_BCA.md",
+        "05_BBM.md",
+        "04_BITM.md",
+        "06_BBS.md",
+        "06_BBS.md",
+        "03_BCA.md",
+        "02_BSc_CSIT.md",
+        "04_BITM.md",
+        "05_BBM.md",
+        "03_BCA.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Tell me about the faculty",
+      "expected_sources": [
+        "01_About_Us.md"
+      ],
+      "retrieved_sources": [
+        "05_BBM.md",
+        "03_BCA.md",
+        "01_About_Us.md",
+        "01_About_Us.md",
+        "04_BITM.md",
+        "06_BBS.md",
+        "01_About_Us.md",
+        "07_BSW.md",
+        "03_BCA.md",
+        "06_BBS.md"
+      ],
+      "reciprocal_rank": 0.3333333333333333,
+      "first_relevant_rank": 3,
+      "is_hit": true
+    },
+    {
+      "query": "What is the fee structure?",
+      "expected_sources": [
+        "02_BSc_CSIT.md",
+        "03_BCA.md",
+        "04_BITM.md",
+        "05_BBM.md",
+        "06_BBS.md",
+        "07_BSW.md"
+      ],
+      "retrieved_sources": [
+        "04_BITM.md",
+        "02_BSc_CSIT.md",
+        "05_BBM.md",
+        "03_BCA.md",
+        "05_BBM.md",
+        "04_BITM.md",
+        "07_BSW.md",
+        "05_BBM.md",
+        "04_BITM.md",
+        "06_BBS.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Duration of BSc CSIT program",
+      "expected_sources": [
+        "02_BSc_CSIT.md"
+      ],
+      "retrieved_sources": [
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "README.md",
+        "02_BSc_CSIT.md",
+        "02_BSc_CSIT.md",
+        "08_Contact.md",
+        "02_BSc_CSIT.md",
+        "05_BBM.md",
+        "02_BSc_CSIT.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    },
+    {
+      "query": "Career opportunities after BCA",
+      "expected_sources": [
+        "03_BCA.md"
+      ],
+      "retrieved_sources": [
+        "03_BCA.md",
+        "03_BCA.md",
+        "03_BCA.md",
+        "03_BCA.md",
+        "README.md",
+        "03_BCA.md",
+        "08_Contact.md",
+        "README.md",
+        "04_BITM.md",
+        "02_BSc_CSIT.md"
+      ],
+      "reciprocal_rank": 1.0,
+      "first_relevant_rank": 1,
+      "is_hit": true
+    }
+  ]
+}

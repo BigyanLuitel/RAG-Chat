@@ -24,6 +24,7 @@ RAG-Chat/
 ├── core/
 │   ├── answer.py          # RAG question-answering logic
 │   ├── ingest.py          # Document ingestion pipeline
+│   ├── evaluation.py      # MRR evaluation module
 │   └── security.py        # Prompt injection detection
 ├── OIC_Website/           # Knowledge base (Markdown files)
 │   ├── 01_About_Us.md
@@ -35,6 +36,7 @@ RAG-Chat/
 │   ├── 07_BSW.md
 │   └── 08_Contact.md
 ├── vector_db/             # ChromaDB vector store (generated)
+├── evaluation_data.json   # Test queries for MRR evaluation
 ├── .env                   # Environment variables
 └── requirements.txt       # Python dependencies
 ```
@@ -134,7 +136,67 @@ The chatbot includes built-in protection against:
 - Jailbreak attempts
 - Role manipulation
 
-## 📄 License
+## � RAG Evaluation (MRR Accuracy)
+
+The project includes a comprehensive evaluation module to measure retrieval quality using **Mean Reciprocal Rank (MRR)**.
+
+### What is MRR?
+
+MRR (Mean Reciprocal Rank) measures how well the retrieval system ranks relevant documents:
+- **MRR = 1.0**: Relevant document is always first
+- **MRR = 0.5**: Relevant document is at position 2 on average
+- **MRR = 0.33**: Relevant document is at position 3 on average
+
+### Running Evaluation
+
+```bash
+# Run the full MRR evaluation
+python core/evaluation.py
+```
+
+### Output Example
+
+```
+============================================================
+            RAG EVALUATION REPORT - MRR ACCURACY
+============================================================
+
+📊 SUMMARY METRICS
+────────────────────────────────────────
+  Mean Reciprocal Rank (MRR): 0.8500
+  Hit Rate:                   93.33%
+  Total Queries:              15
+  Hits (relevant found):      14
+  Misses (not found):         1
+```
+
+### Customizing Test Data
+
+Edit `evaluation_data.json` to add your own test queries:
+
+```json
+[
+  {
+    "query": "Your test question here",
+    "relevant_sources": ["expected_file.md"]
+  }
+]
+```
+
+### Using Evaluation in Code
+
+```python
+from core.evaluation import evaluate_mrr, evaluate_mrr_at_k
+
+# Run basic evaluation
+report = evaluate_mrr(k=10)
+print(f"MRR Score: {report.mrr_score}")
+
+# Evaluate at different k values
+mrr_scores = evaluate_mrr_at_k(k_values=[1, 3, 5, 10])
+```
+
+## �📄 License
 
 This project is licensed under the MIT License.
 

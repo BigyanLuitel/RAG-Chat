@@ -1,0 +1,62 @@
+[
+  {
+    "query": "What programs does Orchid International College offer?",
+    "relevant_sources": ["02_BSc_CSIT.md", "03_BCA.md", "04_BITM.md", "05_BBM.md", "06_BBS.md", "07_BSW.md"]
+  },
+  {
+    "query": "Tell me about BSc CSIT program",
+    "relevant_sources": ["02_BSc_CSIT.md"]
+  },
+  {
+    "query": "What is the BCA program about?",
+    "relevant_sources": ["03_BCA.md"]
+  },
+  {
+    "query": "Information about BITM course",
+    "relevant_sources": ["04_BITM.md"]
+  },
+  {
+    "query": "What is BBM program?",
+    "relevant_sources": ["05_BBM.md"]
+  },
+  {
+    "query": "Tell me about BBS course",
+    "relevant_sources": ["06_BBS.md"]
+  },
+  {
+    "query": "What is BSW program?",
+    "relevant_sources": ["07_BSW.md"]
+  },
+  {
+    "query": "How can I contact Orchid International College?",
+    "relevant_sources": ["08_Contact.md"]
+  },
+  {
+    "query": "What is the history of Orchid International College?",
+    "relevant_sources": ["01_About_Us.md"]
+  },
+  {
+    "query": "Where is the college located?",
+    "relevant_sources": ["08_Contact.md", "01_About_Us.md"]
+  },
+  {
+    "query": "What are the admission requirements?",
+    "relevant_sources": ["02_BSc_CSIT.md", "03_BCA.md", "04_BITM.md", "05_BBM.md", "06_BBS.md", "07_BSW.md"]
+  },
+  {
+    "query": "Tell me about the faculty",
+    "relevant_sources": ["01_About_Us.md"]
+  },
+  {
+    "query": "What is the fee structure?",
+    "relevant_sources": ["02_BSc_CSIT.md", "03_BCA.md", "04_BITM.md", "05_BBM.md", "06_BBS.md", "07_BSW.md"]
+  },
+  {
+    "query": "Duration of BSc CSIT program",
+    "relevant_sources": ["02_BSc_CSIT.md"]
+  },
+  {
+    "query": "Career opportunities after BCA",
+    "relevant_sources": ["03_BCA.md"]
+  }
+]
