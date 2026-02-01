@@ -1,7 +1,6 @@
 import streamlit as st
 from dotenv import load_dotenv
 from core.answer import answer_question
-from core.security import is_prompt_injection
 
 load_dotenv(override=True)
 
@@ -57,10 +56,18 @@ st.markdown("""
         padding: 0.75rem 1.5rem;
     }
     .sidebar-info {
-        background-color: #f0f4f8;
+        background-color: #f0f4c3;
         padding: 1rem;
         border-radius: 10px;
         margin-bottom: 1rem;
+        color: #33691e;
+    }
+    /* Center the chat interface */
+    .main .block-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -86,10 +93,31 @@ def initialize_session_state():
         st.session_state.messages = []
     if "context" not in st.session_state:
         st.session_state.context = []
+    if "awaiting_name" not in st.session_state:
+        st.session_state.awaiting_name = False
 
+
+def extract_name(text):
+    """Extract just the name from phrases like 'I'm Bigyan', 'My name is Bigyan', etc."""
+    import re
+    text = text.strip()
+    
+    # Common patterns to remove
+    patterns = [
+        r"^(i'?m|i am|my name is|this is|it'?s|call me|you can call me)\s+",
+        r"^(hi,?\s*|hello,?\s*|hey,?\s*)?(i'?m|i am|my name is)\s+",
+    ]
+    
+    name = text
+    for pattern in patterns:
+        name = re.sub(pattern, "", name, flags=re.IGNORECASE)
+    
+    # Remove trailing punctuation
+    name = re.sub(r"[.!?]+$", "", name).strip()
+    
+    return name if name else text
 
 def display_chat_history():
-    """Display chat messages"""
     for message in st.session_state.messages:
         if message["role"] == "user":
             with st.chat_message("user", avatar="👤"):
@@ -153,45 +181,34 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # Create two columns for chat and context
-    col1, col2 = st.columns([2, 1])
+    # Chat section (centered via CSS)
+    st.markdown("### 💬 Chat with Us")
     
-    with col1:
-        st.markdown("### 💬 Chat with Us")
+    # Display chat history
+    chat_container = st.container(height=450)
+    with chat_container:
+        display_chat_history()
         
-        # Display chat history
-        chat_container = st.container(height=450)
-        with chat_container:
-            display_chat_history()
+        # Show welcome message if no messages
+        if not st.session_state.messages:
+            st.markdown("""
+            👋 **Welcome to Orchid International College!**
             
-            # Show welcome message if no messages
-            if not st.session_state.messages:
-                st.markdown("""
-                👋 **Welcome to Orchid International College!**
-                
-                I'm here to help you with any questions about our college. You can ask me about:
-                - Admission requirements and process
-                - Academic programs (BSc CSIT, BCA, BITM, BBM, BBS, BSW)
-                - Fee structure and scholarships
-                - Campus facilities and location
-                - Contact information
-                
-                Just type your question below to get started!
-                """)
+            I'm here to help you with any questions about our college. You can ask me about:
+            - Admission requirements and process
+            - Academic programs (BSc CSIT, BCA, BITM, BBM, BBS, BSW)
+            - Fee structure and scholarships
+            - Campus facilities and location
+            - Contact information
+            
+            Just type your question below to get started!
+            """)
     
-    with col2:
-        st.markdown("### 📚 Retrieved Context")
-        context_container = st.container(height=450)
-        with context_container:
-            if st.session_state.context:
-                st.markdown(format_context(st.session_state.context))
-            else:
-                st.info("Context from our knowledge base will appear here when you ask a question.")
+   
     
     # Chat input at the bottom
     if prompt := st.chat_input("Ask anything about Orchid International College..."):
-        if is_prompt_injection(prompt):
-            st.warning("⚠️ Your query appears to contain unsafe instructions. Please ask a normal question related to Orchid International College.")
+        # Check if we're waiting for the user's name for admission booking
         # Add user message to history
         st.session_state.messages.append({"role": "user", "content": prompt})
         
