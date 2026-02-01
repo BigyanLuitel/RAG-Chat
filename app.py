@@ -96,27 +96,6 @@ def initialize_session_state():
     if "awaiting_name" not in st.session_state:
         st.session_state.awaiting_name = False
 
-
-def extract_name(text):
-    """Extract just the name from phrases like 'I'm Bigyan', 'My name is Bigyan', etc."""
-    import re
-    text = text.strip()
-    
-    # Common patterns to remove
-    patterns = [
-        r"^(i'?m|i am|my name is|this is|it'?s|call me|you can call me)\s+",
-        r"^(hi,?\s*|hello,?\s*|hey,?\s*)?(i'?m|i am|my name is)\s+",
-    ]
-    
-    name = text
-    for pattern in patterns:
-        name = re.sub(pattern, "", name, flags=re.IGNORECASE)
-    
-    # Remove trailing punctuation
-    name = re.sub(r"[.!?]+$", "", name).strip()
-    
-    return name if name else text
-
 def display_chat_history():
     for message in st.session_state.messages:
         if message["role"] == "user":
