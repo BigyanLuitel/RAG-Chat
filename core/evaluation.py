@@ -53,7 +53,7 @@ class MRREvaluationReport:
             RAG EVALUATION REPORT - MRR ACCURACY
 {'='*60}
 
-📊 SUMMARY METRICS
+SUMMARY METRICS
 {'─'*40}
   Mean Reciprocal Rank (MRR): {self.mrr_score:.4f}
   Hit Rate:                   {self.hit_rate:.2%}
@@ -61,11 +61,11 @@ class MRREvaluationReport:
   Hits (relevant found):      {self.hits}
   Misses (not found):         {self.misses}
 
-📋 DETAILED RESULTS
+ DETAILED RESULTS
 {'─'*40}
 """
         for i, result in enumerate(self.results, 1):
-            status = "✅" if result.is_hit else "❌"
+            status = "Hit" if result.is_hit else "Miss"
             rank_info = f"Rank: {result.first_relevant_rank}" if result.first_relevant_rank else "Not found"
             report += f"""
   {i}. {status} Query: "{result.query[:50]}{'...' if len(result.query) > 50 else ''}"
@@ -226,7 +226,7 @@ def evaluate_mrr(
     hits = 0
     
     if verbose:
-        print(f"\n🔍 Evaluating {len(test_data)} queries with k={k}...\n")
+        print(f"\n Evaluating {len(test_data)} queries with k={k}...\n")
     
     for i, item in enumerate(test_data):
         query = item['query']
@@ -258,7 +258,7 @@ def evaluate_mrr(
         results.append(result)
         
         if verbose:
-            status = "✅" if is_hit else "❌"
+            status = "Hit" if is_hit else "Miss"
             print(f"  {status} Query {i+1}/{len(test_data)}: RR={rr:.4f}")
     
     # Calculate MRR
@@ -296,7 +296,7 @@ def evaluate_mrr_at_k(
         test_data = get_default_test_data()
     
     results = {}
-    print(f"\n📊 Evaluating MRR@k for k in {k_values}...\n")
+    print(f"\n Evaluating MRR@k for k in {k_values}...\n")
     
     for k in k_values:
         report = evaluate_mrr(test_data, k=k, verbose=False)
@@ -330,7 +330,7 @@ def run_full_evaluation(save_results: bool = True) -> MRREvaluationReport:
     print(report)
     
     # Run MRR@k analysis
-    print("\n📈 MRR@k Analysis:")
+    print("\n MRR@k Analysis:")
     mrr_at_k = evaluate_mrr_at_k(test_data, k_values=[1, 3, 5, 10])
     
     # Save results
@@ -357,7 +357,7 @@ def run_full_evaluation(save_results: bool = True) -> MRREvaluationReport:
         }
         with open(results_path, 'w', encoding='utf-8') as f:
             json.dump(results_data, f, indent=2, ensure_ascii=False)
-        print(f"\n💾 Results saved to {results_path}")
+        print(f"\n Results saved to {results_path}")
     
     return report
 
